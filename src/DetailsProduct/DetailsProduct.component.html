@@ -1,0 +1,42 @@
+<ActionBar class="action-bar">
+    <NavigationButton android.systemIcon="ic_menu_back" (tap)="onBackButtonTap()">
+    </NavigationButton>
+    <Label class="action-bar-title" horizontalAlignment="center"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content">
+    <ScrollView>
+        <GridLayout rows="auto, auto, auto">
+            <Image [src]="'http://192.168.1.139:8000'+productId.image" height="200" class="m-b-15"></Image>
+
+            <StackLayout row="1" class="hr-light m-t-15 m-b-15"></StackLayout>
+
+            <GridLayout row="2" rows="*,*,*,*,*,*" columns="auto, auto">
+
+                <Label text="Price" class="p-l-15 p-b-10 m-r-20 text-secondary"></Label>
+                <Label col="1" class="text p-b-10">
+                    <FormattedString>
+                        <Span [text]="productId.price"></Span>
+                        <Span text=" Fcfa"></Span>
+                    </FormattedString>
+                </Label>
+                <Label text="Nom" class="p-l-15 p-b-10 m-r-20 text-secondary" row="1"></Label>
+                <Label [text]="productId.name" row="1" col="1" class="text p-b-10"></Label>
+
+                <Label text="Etat" class="p-l-15 p-b-10 m-r-20 text-secondary" row="2"></Label>
+                <Label [text]="productId.description" row="2" col="1" class="text p-b-10"></Label>
+
+                <Label text="Stock" class="p-l-15 p-b-10 m-r-20 text-secondary" row="3"></Label>
+                <Label [text]="productId.stock" row="3" col="1" class="text p-b-10"></Label>
+
+                <Label text="Disponibilite" class="p-l-15 m-r-20 p-b-10 text-secondary" row="4"></Label>
+                <Label [text]="productId.available" row="4" col="1" class="text p-b-10"></Label>
+
+                <!-- <Label text="Luggage" class="p-l-15 p-b-10 m-r-20 text-secondary" row="5"></Label> -->
+                <!-- <Label [text]="car.luggage" row="5" col="1" class="text p-b-10"></Label> -->
+
+            </GridLayout>
+        </GridLayout>
+    </ScrollView>
+</GridLayout>
+<Button text="ajouter aux paniers" class="my-button"></Button>
