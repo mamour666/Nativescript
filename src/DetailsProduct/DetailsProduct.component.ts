@@ -67,6 +67,12 @@ export class DetailsProductComponent implements OnInit {
 
           });
 
+
+
+    }
+
+    ontapButton(){
+        this.routerExtensions.navigateByUrl('/newproduct');
     }
 
 

@@ -1,12 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import {Product} from '../model/interface-products';
 import { RouterExtensions } from "nativescript-angular/router";
-import { Subscription } from "rxjs";
-import { finalize } from "rxjs/operators";
-import { ObservableArray } from "tns-core-modules/data/observable-array";
-import { ListView, ItemEventData } from "tns-core-modules/ui/list-view";
+import { ItemEventData } from "tns-core-modules/ui/list-view";
 
 @Component({
     moduleId: module.id,
@@ -26,16 +22,13 @@ export class HomeComponent implements OnInit {
 
     public product: any;
 
-    constructor(private http:HttpClient,private routerExtensions: RouterExtensions) {
-
-    }
+    constructor(private http:HttpClient,private routerExtensions: RouterExtensions) { }
 
     ngOnInit(): void {
         this.getProduct();
     }
     public getProduct() {
-
-        this.http.get("http://192.168.1.139:8000/api/product")
+        this.http.get("http://192.168.1.27:8000/api/product")
         .subscribe(productList=>{
             this.allProduct = productList;
             this.items = JSON.stringify(this.allProduct);

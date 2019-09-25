@@ -1,0 +1,32 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="New Product"></Label>
+</ActionBar>
+
+<StackLayout class="form">
+
+    <TextField hint="Name" class="input input-rounded m-t-10" [(ngModel)]="name"  editable="true"></TextField>
+    <TextField hint="Slug" class="input input-rounded m-t-10" [(ngModel)]="slug"  editable="true"></TextField>
+    <TextField hint="price" class="input input-rounded m-t-10" [(ngModel)]="price"  editable="true"></TextField>
+    <TextField hint="stock" class="input input-rounded m-t-10" [(ngModel)]="stock" editable="true"></TextField>
+    <TextField hint="description" class="input input-rounded m-t-10" [(ngModel)]="description" editable="true"></TextField>
+    <GridLayout rows="*, auto, auto">
+        <ListView [items]="imageAssets" *ngIf="!isSingleMode">
+            <ng-template let-image="item" let-i="index">
+                <GridLayout columns="auto, *">
+                    <Image
+                        [width]="thumbSize"
+                        [height]="thumbSize"
+                        [src]="image" stretch="aspectFill"></Image>
+                    <Label col="1" [text]="'image ' + i"></Label>
+                </GridLayout>
+            </ng-template>
+        </ListView>
+        <Image [src]="imageSrc"  [(ngModel)]="image"   *ngIf="isSingleMode" [width]="previewSize" [height]="previewSize" stretch="aspectFit"></Image>
+        <Button row="1" text="Pick Single" (tap)="onSelectSingleTap()" horizontalAlignment="center"></Button>
+        <!-- <Button row="2" text="Pick Multiple" (tap)="onSelectMultipleTap()" horizontalAlignment="center"></Button> -->
+        <Button text="Inserer" class="mybutton" (tap)="submit()"></Button>
+
+    </GridLayout>
+
+
+  </StackLayout>
